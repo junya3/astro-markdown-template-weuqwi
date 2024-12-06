@@ -1,0 +1,57 @@
+---
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <h1 id="title">{title}</h1>
+      <slot />
+    </main>
+  </body>
+  <style is:global>
+    * {
+      font-family: sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+    }
+    html {
+      background: #efefef;
+      color: #212121;
+    }
+    main {
+      width: min(100%, 500px);
+      margin: 0 auto;
+      padding: 4rem 2rem;
+
+      display: grid;
+      gap: 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: #212121;
+      &:hover {
+        text-decoration: underline;
+        color: color-mix(in srgb, #212121 60%, transparent);
+      }
+    }
+    #title {
+      text-align: center;
+      font-size: 1.5rem;
+      &::after,
+      &::before {
+        content: '〜';
+        padding-inline: 0.5rem;
+      }
+    }
+  </style>
+</html>

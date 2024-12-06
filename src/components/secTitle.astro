@@ -1,0 +1,43 @@
+<h2>
+  <p>
+    <span class="left"></span>
+    <slot />
+    <span class="right"></span>
+  </p>
+</h2>
+
+<style>
+  h2 {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid;
+    font-size: 1rem;
+
+    p {
+      width: 100%;
+      padding: 0.5rem;
+      background: #000;
+      color: #fff;
+
+      display: grid;
+      grid-template-columns: min-content 1fr min-content;
+
+      text-align: center;
+
+      span {
+        width: min-content;
+        height: 100%;
+        aspect-ratio: 1/1;
+        border: solid #fff;
+        &.left {
+          border-top: none;
+          border-right: none;
+        }
+        &.right {
+          border-bottom: none;
+          border-left: none;
+        }
+      }
+    }
+  }
+</style>
